@@ -1,0 +1,35 @@
+.heading {
+  width: 100vw;
+  height: 50px;
+  background-color: cyan;
+  align-items: center;
+  display: flex;
+}
+.heading > h1 {
+  margin: auto auto;
+  /* color: darkcyan; */
+}
+
+.input__form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input__form > input {
+  margin-bottom: 5px;
+  width: 30vw;
+  height: 25px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid cyan;
+}
+
+.submit__button {
+  width: 15vw !important;
+  height: auto;
+  cursor: pointer;
+  font-weight: 400;
+  /* padding: 5px; */
+}

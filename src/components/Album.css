@@ -1,0 +1,32 @@
+.album {
+  border: 2px solid cyan;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+.album > h4 {
+  margin-bottom: 10px;
+}
+button {
+  margin-right: 15px;
+}
+.edit__button {
+  background-color: rgb(233, 194, 123);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit__button:hover {
+  background-color: aqua;
+}
+
+.delete__button {
+  background-color: rgb(56, 160, 192);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete__button:hover {
+  background-color: aqua;
+}
