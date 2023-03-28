@@ -1,45 +1,40 @@
 import React from "react";
 import "./Album.css";
-function Album({
-  item,
-  albums,
-  setAlbums,
-  setTitle,
-  setUserId,
-  userId,
-  title,
-  setEdit,
-}) {
+
+// Destructuring props into respective names
+function Album({ item, albums, setAlbums, setTitle, setUserId, setEdit }) {
+  // Method to delete a album based on ID
   const deleteAlbum = (e) => {
     console.log("In delete");
     fetch("https://jsonplaceholder.typicode.com/albums/1", {
       method: "DELETE",
     });
-    const newArray = albums.filter((album) => album.id != e.target.value);
-    console.log("new Array: ", newArray);
+    // Getting index ob album
+    const index = albums.findIndex((item) => item.id == e.target.value);
+
+    const newArray = [...albums];
+    newArray.splice(index, 1);
     setAlbums(newArray);
   };
 
+  // Method to edit the album
   const editAlbum = () => {
-    console.log("in update", item.userId);
-
     setUserId(item.userId);
     setTitle(item.title);
     setEdit(item);
   };
+
   return (
+    // Wrapper for album card
     <div className="album" key={`${item.title}-${item.id}`}>
       <h4>Title: {item.title}</h4>
       <h4>UserId: {item.userId}</h4>
+      {/* Edit button */}
       <button className="edit__button" onClick={editAlbum}>
         Edit
       </button>
-      <button
-        className="delete__button"
-        placeholder={item.id}
-        value={item.id}
-        onClick={deleteAlbum}
-      >
+      {/* Delete button */}
+      <button className="delete__button" value={item.id} onClick={deleteAlbum}>
         Delete
       </button>
     </div>

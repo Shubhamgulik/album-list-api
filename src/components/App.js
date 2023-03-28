@@ -3,24 +3,22 @@ import Album from "./Album";
 import { useEffect, useState } from "react";
 
 function App() {
-  // All Records
-
+  // Creating hooks
   const [albums, setAlbums] = useState([]);
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [edit, setEdit] = useState({});
+
+  // Fetch All Records for the initial render
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/albums")
       .then((response) => response.json())
       .then((data) => {
-        console.log("1");
         setAlbums(data);
-        console.log("Albums in loop ", albums);
       });
   }, []);
 
-  // Add Album
-
+  // Add Album to albums
   const addAlbum = () => {
     fetch("https://jsonplaceholder.typicode.com/albums", {
       method: "POST",
@@ -39,13 +37,12 @@ function App() {
         setAlbums(newArray);
         console.log("Added record2: ", data);
       });
-
     return;
   };
 
-  // Update Album
-
-  const updateAlbum = (id, userId, title) => {
+  // Update Album with given id
+  const updateAlbum = (id) => {
+    console.log("Edit in update : ", id);
     fetch("https://jsonplaceholder.typicode.com/posts/1", {
       method: "PUT",
       body: JSON.stringify({
@@ -59,26 +56,21 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Updated data : ", data);
-        const newArray = albums.map((item) => {
-          if (item.id === id) {
-            item.userId = userId;
-            item.title = title;
-          }
-        });
+        const index = albums.findIndex((item) => item.id === id);
+        const newArray = [...albums];
+        newArray[index] = { id, userId, title };
         setAlbums(newArray);
       });
   };
 
+  // method to handle the submit action to check whether it is an update or new album
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("id : ", userId);
-    console.log("title : ", title);
+
     if (userId !== "" && title !== "") {
-      if (edit) {
-        console.log("Eddit :", edit);
-        updateAlbum(edit.id, edit.userId, edit.title);
-        setEdit({});
+      if (JSON.stringify(edit) !== "{}") {
+        updateAlbum(edit.id);
+        setEdit(null);
       } else {
         addAlbum();
       }
@@ -87,18 +79,13 @@ function App() {
     }
   };
 
-  // Fetch single record
-  // fetch("https://jsonplaceholder.typicode.com/albums/101")
-  //   .then((response) => response.json())
-  //   .then((json) => console.log("getting record: 1", json));
-
-  // Update record
-
   return (
     <div className="App">
+      {/* Heading of the app */}
       <div className="heading">
         <h1>Albums App using ReactJS</h1>
       </div>
+      {/* Form to Add new or update album */}
       <div className="form">
         <form className="input__form" action="" method="post">
           <input
@@ -120,14 +107,15 @@ function App() {
           />
         </form>
       </div>
+
+      {/* traverse each album and pass props to Album card */}
       {albums.map((item, index) => {
-        // console.log("Item : ", item);
         return (
           <Album
             item={item}
             albums={albums}
             setAlbums={setAlbums}
-            key={`album-${item.id}`}
+            key={`${item.title}-${item.id}`}
             setTitle={setTitle}
             setUserId={setUserId}
             userId={userId}
@@ -136,17 +124,7 @@ function App() {
             setEdit={setEdit}
           />
         );
-        // return (
-
-        // );
       })}
-      {/* <Album />
-      <Album />
-      <Album />
-      <Album />
-      <Album />
-      <Album />
-      <Album /> */}
     </div>
   );
 }

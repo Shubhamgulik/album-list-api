@@ -1,16 +1,21 @@
+/* Styles for the album container */
 .album {
   border: 2px solid cyan;
   border-radius: 10px;
   padding: 5px;
   padding-left: 20px;
   margin-bottom: 5px;
+  color: rgb(147, 219, 125);
 }
+/* selecting h4 tags and buttons of delete and edit */
 .album > h4 {
   margin-bottom: 10px;
 }
 button {
   margin-right: 15px;
 }
+
+/* Styles for Edit button */
 .edit__button {
   background-color: rgb(233, 194, 123);
   padding: 10px;
@@ -21,6 +26,7 @@ button {
   background-color: aqua;
 }
 
+/* Styles for Delete button */
 .delete__button {
   background-color: rgb(56, 160, 192);
   padding: 10px;

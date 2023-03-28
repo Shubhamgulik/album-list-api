@@ -1,22 +1,24 @@
+/* Heading of the app */
 .heading {
   width: 100vw;
   height: 50px;
-  background-color: cyan;
+  background-color: rgb(78, 26, 88);
   align-items: center;
   display: flex;
+  color: white;
 }
 .heading > h1 {
   margin: auto auto;
-  /* color: darkcyan; */
 }
 
+/* Input form of the app */
 .input__form {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+/* Selecting input tags */
 .input__form > input {
   margin-bottom: 5px;
   width: 30vw;
@@ -25,11 +27,10 @@
   border-radius: 10px;
   border: 2px solid cyan;
 }
-
+/* Styles for submit button */
 .submit__button {
   width: 15vw !important;
   height: auto;
   cursor: pointer;
   font-weight: 400;
-  /* padding: 5px; */
 }
