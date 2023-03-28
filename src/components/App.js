@@ -42,7 +42,6 @@ function App() {
 
   // Update Album with given id
   const updateAlbum = (id) => {
-    console.log("Edit in update : ", id);
     fetch("https://jsonplaceholder.typicode.com/posts/1", {
       method: "PUT",
       body: JSON.stringify({
