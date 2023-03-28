@@ -1,3 +1,15 @@
+### View Live : https://shubhamgulik.github.io/album-list-api/
+
+#### Homepage with all records:
+![image](https://user-images.githubusercontent.com/42814032/228156763-ee1c09aa-2c40-4c5e-8f53-8a32de4ae6fc.png)
+
+####  New Record added:
+![image](https://user-images.githubusercontent.com/42814032/228157074-375df5f2-cf56-4186-b259-4bd748dce5a7.png)
+
+#### Updating record: 
+![image](https://user-images.githubusercontent.com/42814032/228157518-8a9a2a91-c648-4dea-97da-185534358f0f.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
