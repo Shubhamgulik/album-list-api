@@ -69,7 +69,7 @@ function App() {
     if (userId !== "" && title !== "") {
       if (JSON.stringify(edit) !== "{}") {
         updateAlbum(edit.id);
-        setEdit(null);
+        setEdit({});
       } else {
         addAlbum();
       }

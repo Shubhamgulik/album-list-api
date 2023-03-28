@@ -5,7 +5,6 @@ import "./Album.css";
 function Album({ item, albums, setAlbums, setTitle, setUserId, setEdit }) {
   // Method to delete a album based on ID
   const deleteAlbum = (e) => {
-    console.log("In delete");
     fetch("https://jsonplaceholder.typicode.com/albums/1", {
       method: "DELETE",
     });
